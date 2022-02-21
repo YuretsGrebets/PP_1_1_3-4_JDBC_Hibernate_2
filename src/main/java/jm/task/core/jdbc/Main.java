@@ -2,6 +2,8 @@ package jm.task.core.jdbc;
 
 import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.service.UserServiceImpl;
+import org.hibernate.SessionFactory;
+import org.hibernate.internal.SessionFactoryImpl;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,5 +22,7 @@ public class Main {
 
         userService.cleanUsersTable();
         userService.dropUsersTable();
+
+
     }
 }
