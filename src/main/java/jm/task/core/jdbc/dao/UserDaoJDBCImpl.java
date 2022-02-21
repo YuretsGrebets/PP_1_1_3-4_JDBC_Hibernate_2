@@ -10,8 +10,8 @@ import static jm.task.core.jdbc.util.Util.getConnection;
 
 public class UserDaoJDBCImpl implements UserDao {
 
-    private Connection connection = getConnection();
-    private List<User> list = new ArrayList<>();
+    private final Connection connection = getConnection();
+    private final List<User> list = new ArrayList<>();
 
 
     public UserDaoJDBCImpl() {
@@ -33,6 +33,11 @@ public class UserDaoJDBCImpl implements UserDao {
                 connection.commit();
             } catch (SQLException e) {
                 e.printStackTrace();
+                try {
+                    connection.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
             }
     }
 
@@ -43,6 +48,11 @@ public class UserDaoJDBCImpl implements UserDao {
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -57,6 +67,11 @@ public class UserDaoJDBCImpl implements UserDao {
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -68,6 +83,11 @@ public class UserDaoJDBCImpl implements UserDao {
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 
@@ -82,6 +102,11 @@ public class UserDaoJDBCImpl implements UserDao {
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
         return list;
     }
@@ -93,6 +118,11 @@ public class UserDaoJDBCImpl implements UserDao {
             connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 }
